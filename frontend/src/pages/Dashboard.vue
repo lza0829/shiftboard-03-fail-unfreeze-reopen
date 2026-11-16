@@ -24,7 +24,12 @@ onMounted(async () => {
         <div class="stat"><div class="k">班次数</div><div class="v">{{ data.班次数 }}</div></div>
         <div class="stat"><div class="k">在途批次</div><div class="v">{{ data.在途批次数 }}</div></div>
         <div class="stat"><div class="k">进行中交班</div><div class="v">{{ data.进行中交班 }}</div></div>
+        <div class="stat"><div class="k">托管批次</div><div class="v">{{ data.托管批次数 }}</div></div>
+        <div class="stat"><div class="k">锁定班次</div><div class="v">{{ data.锁定班次数 }}</div></div>
       </div>
+      <p class="msg" :class="{ ok: data.锁托管同源 }">
+        {{ data.锁托管同源 ? '进行中数、班次锁与托管集合同源一致' : '警告：锁/托管与进行中交班不同源' }}
+      </p>
       <div class="panel">
         <h2>班次状态</h2>
         <table>
